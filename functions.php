@@ -120,7 +120,6 @@ add_action( 'widgets_init', 'lccwm_widgets_init' );
  * Enqueue scripts and styles.
  */
 function lccwm_scripts() {
-	wp_enqueue_style( 'bootstrap-grid', get_template_directory_uri() . '/css/bootstrap-grid.min.css' );
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
 	wp_enqueue_style( 'lccwm', get_stylesheet_uri() );
 

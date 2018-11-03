@@ -24,7 +24,7 @@
 <div id="page" class="site container-fluid">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'lccwm' ); ?></a>
 
-	<nav id="site-navigation" class="row navbar navbar-expand-lg navbar-light bg-light">
+	<nav id="site-navigation" class="row navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="site-branding navbar-brand">
 			<?php
 			the_custom_logo();
