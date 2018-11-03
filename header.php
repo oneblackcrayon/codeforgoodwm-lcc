@@ -21,11 +21,11 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
+<div id="page" class="site container-fluid">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'lccwm' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
+	<nav id="site-navigation" class="row navbar navbar-expand-lg navbar-light bg-light">
+		<div class="site-branding navbar-brand">
 			<?php
 			the_custom_logo();
 			if ( is_front_page() && is_home() ) :
@@ -44,15 +44,17 @@
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation navbar navbar-expand-lg navbar-light bg-light">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'lccwm' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+		<?php
+		wp_nav_menu( array(
+			'theme_location' => 'menu-1',
+			'container_id'   => 'collapse navbar-collapse',
+			'container_class' => 'navbarSupportedContent',
+			'menu_id'        => 'primary-menu',
+			'menu_class'     => 'navbar-nav ml-auto',
+		) ); ?>
+		
+		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'lccwm' ); ?></button>
+		
+	</nav>
 
-	<div id="content" class="site-content">
+	<div id="content" class="site-content row">
