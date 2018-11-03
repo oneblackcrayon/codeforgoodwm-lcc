@@ -47,13 +47,15 @@
 		<?php
 		wp_nav_menu( array(
 			'theme_location' => 'menu-1',
-			'container_id'   => 'collapse navbar-collapse',
-			'container_class' => 'navbarSupportedContent',
+			'container_id'   => '',
+			'container_class' => '',
 			'menu_id'        => 'primary-menu',
-			'menu_class'     => 'navbar-nav ml-auto',
+			'menu_class'     => 'collapse navbar-collapse',
 		) ); ?>
 		
-		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'lccwm' ); ?></button>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle <?php esc_html_e( 'Primary Menu', 'lccwm' ); ?>">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 		
 	</nav>
 

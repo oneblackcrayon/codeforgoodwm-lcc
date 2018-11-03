@@ -21,7 +21,7 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
-
+			
 			get_template_part( 'template-parts/content', 'page' );
 
 			// If comments are open or we have at least one comment, load up the comment template.
@@ -30,6 +30,44 @@ get_header();
 			endif;
 
 		endwhile; // End of the loop.
+		?>
+			
+		<?php
+
+		// check if the repeater field has rows of data
+		if( have_rows('person') ): ?>
+			<div class="card-deck row">
+
+			<?php
+			// loop through the rows of data
+			while ( have_rows('person') ) : the_row();
+
+				// display a sub field value
+				$image = get_sub_field('image');
+				$name = get_sub_field('name');
+				$description = get_sub_field('description'); ?>
+				
+				<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="card">
+					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" class="card-img-top" />
+					<div class="card-body">
+						<h5 class="card-title"><?php echo $name; ?></h5>
+						<div class="card-text">
+							<?php echo $description; ?>
+						</div>
+					</div>
+				</div>
+				</div>
+			<?php
+			endwhile; ?>
+			</div>
+		<?php
+		else :
+
+			// no rows found
+
+		endif;
+
 		?>
 
 		</main><!-- #main -->
