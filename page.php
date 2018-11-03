@@ -13,7 +13,15 @@
  */
 
 get_header();
-?>
+
+	$main_image = get_the_post_thumbnail();
+	$main_size = 'full'; // (thumbnail, medium, large, full or custom size)  ?>
+	
+	<figure class="billboard container-fluid">
+		<?php if( $main_image ) {
+			echo wp_get_attachment_image( $main_image, $main_size );
+		} ?>
+	</figure>
 
 	<div id="primary" class="content-area col-12 col-sm-8 col-lg-9">
 		<main id="main" class="site-main">
@@ -30,9 +38,6 @@ get_header();
 			endif;
 
 		endwhile; // End of the loop.
-		?>
-			
-		<?php
 
 		// check if the repeater field has rows of data
 		if( have_rows('person') ): ?>
@@ -48,7 +53,7 @@ get_header();
 				$description = get_sub_field('description'); ?>
 				
 				<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-				<div class="card">
+				<div class="card orange">
 					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" class="card-img-top" />
 					<div class="card-body">
 						<h5 class="card-title"><?php echo $name; ?></h5>

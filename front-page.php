@@ -1,12 +1,17 @@
 <?php
 get_header(); ?>
 
-	<div class="row mx-0">
+	<div class="billboard row mx-0">
 		<?php 
 		$banner = get_field('banner'); ?>
 		
-		<img src="<?php echo $banner['image']['url']; ?>" alt="<?php echo $banner['image']['alt']; ?>" />
-		<div class="row text-center hero-text">
+		<img src="<?php echo $banner['image']['sizes']['thumbnail']; ?>"
+			 alt="<?php echo $banner['image']['alt']; ?>"
+			 class="img-fluid"
+			 srcset="<?php echo $banner['image']['sizes']['medium']; ?> 768w,
+					 <?php echo $banner['image']['sizes']['large']; ?> 1024w,
+					 <?php echo $banner['image']['url']; ?> 1920w" />
+		<div class="col-12 text-center hero-text py-3">
 			<h4><?php echo $banner['tagline']; ?></h4>
 		</div>
 	</div>
@@ -32,7 +37,7 @@ get_header(); ?>
 						</div>
 						<div class="col-lg-6">
 							<p class="text-right">
-								<a href="<?php echo $featured_card['button_link']; ?>" class="btn btn-light"><?php echo $featured_card['button_title']; ?></a>
+								<a href="<?php echo $featured_card['button_link']; ?>" class="card-link"><?php echo $featured_card['button_title']; ?></a>
 							</p>
 						</div>
 					</div>
@@ -55,7 +60,7 @@ get_header(); ?>
 			$button_link = get_sub_field('button_link'); ?>
 			
 			<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-				<div class="card">
+				<div class="card orange">
 					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" class="card-img-top img-fluid" />
 					<div class="card-body">
 						<?php echo $content; ?>
